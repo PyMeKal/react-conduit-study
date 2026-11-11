@@ -1,13 +1,8 @@
-import Header from './components/Header.jsx'
-//import Article from './components/Article.jsx';
-import Feed from './components/Feed.jsx';
+import ArticlePage from "./pages/ArticlePage";
 
 
 export default function App() {
   return (
-    <>
-      <Header/>
-      <Feed/>
-    </>
+    <ArticlePage/>
   );
 }

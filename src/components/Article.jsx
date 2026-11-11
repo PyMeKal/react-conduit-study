@@ -1,12 +1,9 @@
 
 function Article({article}){
-
-   
     return (
         <li>
-            <div>
-                {article.title}
-            </div>       
+            <span>{article.author.username}</span>
+            <h2>{article.title}</h2>       
             <div>
                 {article.body}
             </div>
