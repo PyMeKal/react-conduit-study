@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function Header(){
     return (
         <nav class="navbar navbar-light">
@@ -6,13 +8,17 @@ function Header(){
             </div>
             <ul class="nav navbar-nav pull-xs-right">
               <li class="nav-item">
-                <a routerlink="/editor" routerlinkactive="active" class="nav-link" href="/editor"><i class="ion-compose"></i>&nbsp;New Article </a>
+                <Link to="/">Home</Link>
               </li>
               <li class="nav-item">
-                <a routerlink="/settings" routerlinkactive="active" class="nav-link" href="/settings"><i class="ion-gear-a"></i>&nbsp;Settings </a>
+                <Link to="/editor">New Article</Link>
               </li>
               <li class="nav-item">
-             </li>
+                <Link to="/settings">Settings</Link>
+              </li>
+              <li class="nav-item">
+                <Link to="/profile">Profile</Link>
+              </li>
             </ul>
         </nav>
     );

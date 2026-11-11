@@ -1,8 +1,16 @@
-import ArticlePage from "./pages/ArticlePage";
+import { Outlet } from "react-router";
 
+import Header from "./components/Header";
 
-export default function App() {
+function App(){
   return (
-    <ArticlePage/>
+    <>
+      <Header/>
+      <Outlet />
+    </>
   );
+
 }
+
+
+export default App;
