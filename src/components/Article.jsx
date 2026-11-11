@@ -1,10 +1,16 @@
-function Article(){
-    //const [text, setText] = useState('');
 
+function Article({article}){
+
+   
     return (
-        <div class="container">
-            Article
-        </div>       
+        <li>
+            <div>
+                {article.title}
+            </div>       
+            <div>
+                {article.body}
+            </div>
+        </li>
     );
 }
 
