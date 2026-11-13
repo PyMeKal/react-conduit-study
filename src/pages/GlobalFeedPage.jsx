@@ -3,34 +3,31 @@ import Article from "../components/Article";
 import { Link } from "react-router";
 
 function GlobalFeedPage() {
-     const [articles, setArticles] = useState([]);
-    //const [comments] = useState([...initialComments]);
+    const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-    const fetchArticle = async () => {
-        try {
-            const response = await fetch('/api/articles');
+        const fetchArticle = async () => {
+            try {
+                const response = await fetch('/api/articles');
 
-            console.log(response)
+                if (!response.ok) {
+                throw new Error('Failed to fetch articles');
+                }
 
-            if (!response.ok) {
-            throw new Error('Failed to fetch todos');
+                const data = await response.json();
+
+                setArticles(data.articles);
+
+            } catch (err) {
+                setError(err);
+            } finally {
+                setIsLoading(false);
             }
-
-            const data = await response.json();
-
-            setArticles(data.articles);
-
-        } catch (err) {
-            setError(err);
-        } finally {
-            setIsLoading(false);
-        }
-    };
-        
-    fetchArticle();
+        };
+            
+        fetchArticle();
     }, []);
 
     if (isLoading) {

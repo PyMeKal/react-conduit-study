@@ -1,249 +1,182 @@
 :root {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #373a3c;
-  background: #fff;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  --green: #398435;
-  --heading: #222;
-  --muted: #6b6f6b;
-  --border: #eee;
-  --surface: #f5f5f5;
-  --danger: #b52b35;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+  color: #26332e;
+  background: #f5f6f5;
+  font-size: 15px;
+  line-height: 1.75;
+  --green: #FF9E3D;
+  --border: #dce3de;
+  --muted: #65736b;
 }
 
-* {
-  box-sizing: border-box;
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: var(--green); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible { outline: 3px solid #a57921; outline-offset: 4px; }
+h1, h2, h3, p { margin: 0; }
+h1 { font-size: 32px; line-height: 1.45; letter-spacing: -1px; }
+h2 { font-size: 20px; line-height: 1.5; }
+h3 { font-size: 17px; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.container { max-width: 1100px; width: calc(100% - 48px); margin: 0 auto; }
+.site-header { background: var(--green); }
+.nav-inner { max-width: 1100px; min-height: 64px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 52px; }
+.nav-inner a { color: white; }
+.brand { font-size: 23px; font-weight: 750; letter-spacing: -1px; white-space: nowrap; }
+.nav-links { display: flex; align-self: stretch; gap: 28px; }
+.nav-links a { display: flex; align-items: center; border-bottom: 3px solid transparent; padding-top: 3px; font-size: 14px; }
+.nav-links a[aria-current="page"] { border-bottom-color: #d7eadf; font-weight: 700; }
+.site-footer { max-width: 1100px; margin: 52px auto 0; padding: 22px 24px; border-top: 1px solid var(--border); color: var(--muted); text-align: center; font-size: 12px; }
+.site-footer span { padding: 0 8px; }
+.home { padding-top: 48px; }
+.welcome { background: #edf3ee; border: 1px solid var(--border); padding: 48px; }
+.eyebrow { color: var(--green); font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+.intro { color: var(--muted); margin-top: 14px; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 24px; padding: 10px 20px; border: 1px solid var(--border); border-radius: 4px; background: white; color: #33483c; font: inherit; font-size: 14px; font-weight: 600; }
+.button:hover { background: #f4f7f4; text-decoration: none; }
+.primary { background: var(--green); border-color: var(--green); color: white; }
+.primary:hover { background: #205f4c; }
+.button:disabled { background: #e2e7e3; border-color: #e2e7e3; color: #68746c; cursor: not-allowed; }
+.home-section { margin-top: 36px; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); list-style: none; padding: 0; margin: 18px 0 0; border: 1px solid var(--border); background: white; }
+.steps li { padding: 24px; }
+.steps li + li { border-left: 1px solid var(--border); }
+.step-number { color: var(--green); font-size: 12px; font-weight: 700; }
+.steps h3 { margin: 8px 0; }
+.steps p, .example-link p { color: var(--muted); font-size: 14px; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.example-link { display: flex; align-items: center; justify-content: space-between; gap: 16px; background: white; padding: 24px; border: 1px solid var(--border); color: inherit; }
+.example-link:hover { border-color: var(--green); text-decoration: none; }
+.example-link h3 { margin: 8px 0 4px; }
+.example-arrow { color: var(--green); font-size: 24px; }
+.tag { display: inline-block; border: 1px solid #c9ded0; color: var(--green); border-radius: 3px; background: #f0f6f1; padding: 1px 8px; font-size: 12px; }
+.form-page { max-width: 780px; padding-top: 28px; }
+.breadcrumb { color: var(--muted); font-size: 12px; margin-bottom: 22px; }
+.breadcrumb a { margin-right: 8px; }
+.panel { margin-top: 28px; background: white; border: 1px solid var(--border); padding: 32px; }
+.panel > .muted { font-size: 14px; margin-top: 8px; }
+.field { margin-top: 26px; }
+.field label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px; }
+input, textarea { font: inherit; max-width: 100%; }
+input[type="text"], textarea { width: 100%; border: 1px solid #c8d1ca; border-radius: 3px; padding: 11px 12px; color: inherit; background: white; }
+textarea { display: block; resize: vertical; }
+input::placeholder { color: #778279; }
+.upload-area { border: 1px dashed #aabbad; background: #fafcf9; padding: 24px; }
+.upload-area > p:first-child { margin-bottom: 16px; font-size: 14px; }
+input[type="file"] { display: block; width: 100%; font-size: 13px; }
+input[type="file"]::file-selector-button { border: 1px solid #bccac0; border-radius: 3px; background: white; color: #33483c; padding: 8px 14px; margin-right: 12px; cursor: pointer; }
+.file-help, .upload-status:not(:empty), .uploaded-file, .upload-error { margin-top: 12px; }
+.uploaded-file { overflow-wrap: anywhere; font-size: 14px; }
+.upload-area .button { margin-top: 12px; }
+.upload-error { color: #a32929; }
+.chat-preview { margin-top: 26px; }
+.chat-preview pre { max-height: 300px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; background: #fafcf9; border: 1px solid var(--border); padding: 16px; font: inherit; font-size: 13px; }
+.notice { margin-top: 24px; border-left: 3px solid #a7c4af; background: #f2f6f2; color: #536359; padding: 12px 16px; font-size: 13px; }
+.help-box { margin-top: 24px; padding: 0 4px; }
+.help-box h2 { font-size: 16px; }
+.help-box ol { padding-left: 21px; color: #536359; font-size: 14px; }
+.wiki-layout { display: grid; grid-template-columns: minmax(0, 1fr) 210px; align-items: start; gap: 24px; padding-top: 28px; }
+.wiki-article { min-width: 0; background: white; border: 1px solid var(--border); padding: 32px; }
+.article-header h1 { margin: 10px 0 6px; }
+.article-title-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.article-title-row .button { flex-shrink: 0; }
+.article-header h1, .wiki-section h2 { overflow-wrap: anywhere; }
+.wiki-text { white-space: pre-wrap; overflow-wrap: anywhere; }
+.wiki-section > * + * { margin-top: 18px; }
+.footnote-reference { font-size: 11px; font-weight: 400; line-height: 1; white-space: normal; }
+.footnote-reference > a { padding: 3px; }
+.footnote-tooltip { position: fixed; inset: auto; margin: 0; max-height: calc(50dvh - 24px); overflow: auto; padding: 12px 16px; border: 1px solid var(--border); border-radius: 6px; background: white; color: #26332e; box-shadow: 0 4px 16px #26332e26; font: inherit; font-size: 13px; line-height: 1.7; white-space: pre-wrap; overflow-wrap: anywhere; }
+.footnotes { clear: both; border-top: 1px solid var(--border); margin-top: 36px; padding-top: 20px; font-size: 13px; }
+.footnotes h2 { font-size: 17px; }
+.footnotes ol { list-style: none; padding: 0; }
+.footnotes li { margin-top: 8px; scroll-margin-top: 24px; overflow-wrap: anywhere; white-space: pre-wrap; }
+.footnotes li:target { background: #fff5e9; }
+.editor-section-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.table-editor { min-width: 0; margin: 26px 0 0; padding: 16px; border: 1px solid var(--border); }
+.table-editor-row { display: flex; flex-wrap: wrap; align-items: start; gap: 12px; min-width: 0; margin: 16px 0; padding: 12px; border: 1px solid var(--border); }
+.table-editor .field { margin-top: 12px; }
+.table-editor-row .field { min-width: 0; flex: 1 1 140px; }
+.table-editor-row .button { margin-top: 12px; }
+.editor-save { margin-top: 28px; padding: 24px; background: white; border: 1px solid var(--border); }
+.editor-save .actions { margin-top: 12px; }
+.category { margin-top: 24px; padding: 7px 12px; border: 1px solid var(--border); font-size: 12px; }
+.category span { padding: 0 6px; color: #b0bab3; }
+.toc { display: table; max-width: 100%; margin-top: 24px; padding: 16px 24px; border: 1px solid var(--border); background: #fdfefd; }
+.toc h2 { font-size: 17px; }
+.toc ol { list-style: none; margin: 8px 0 0; padding-left: 0; font-size: 14px; }
+.toc ol ol { padding-left: 20px; }
+.toc li { padding-left: 4px; }
+.wiki-section { margin-top: 32px; scroll-margin-top: 24px; }
+.wiki-section-heading { font-size: 23px; border-bottom: 1px solid #cdd7cf; padding-bottom: 7px; margin-bottom: 18px; overflow-wrap: anywhere; }
+.wiki-section .wiki-section .wiki-section-heading { font-size: 20px; }
+/* 정보 표는 DOM에서 본문 앞에 두고, right 배치일 때만 데스크톱에서 옆으로 띄웁니다. */
+.wiki-infobox { max-width: 100%; margin-top: 24px; border: 1px solid var(--border); background: #fdfefd; overflow-wrap: anywhere; }
+.wiki-infobox h2 { padding: 14px 16px; font-size: 18px; background: #edf3ee; }
+.wiki-infobox th { width: 32%; }
+.infobox-right { float: right; width: min(320px, 45%); margin: 24px 0 20px 24px; }
+.wiki-sections { display: flow-root; min-width: 0; }
+.wiki-image { margin: 18px 0; max-width: 100%; }
+.wiki-image img { display: block; max-width: 100%; height: auto; margin: auto; }
+.wiki-image figcaption { padding: 8px 12px; font-size: 13px; color: var(--muted); white-space: pre-wrap; }
+.wiki-preview { margin-top: 28px; }
+.wiki-preview > h2 { margin-bottom: 12px; }
+.wiki-preview .wiki-article { margin-top: 12px; }
+.json-editor { margin-top: 28px; }
+.json-editor textarea, #wiki-json-text { font-family: ui-monospace, monospace; font-size: 13px; }
+.wiki-article::after { content: ''; display: block; clear: both; }
+.section-number { margin-right: 6px; font-weight: 400; }
+.wiki-section p, .content-list { font-size: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { border: 1px solid #d5ded7; padding: 10px 12px; text-align: left; }
+th { background: #edf3ee; font-weight: 600; }
+.info-table { margin-top: 18px; }
+.info-table th { width: 110px; white-space: nowrap; color: #375c46; }
+.table-scroll { overflow-x: auto; }
+.schedule-table { min-width: 500px; }
+.schedule-table th:first-child { width: 116px; }
+.content-list { padding-left: 20px; }
+.content-list li + li { margin-top: 8px; }
+.article-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--border); margin-top: 36px; padding-top: 20px; font-size: 13px; }
+.sidebar-box { background: white; border: 1px solid var(--border); padding: 20px; }
+.sidebar-box h2 { font-size: 16px; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--border); }
+.sidebar-box p { font-size: 14px; color: var(--muted); }
+.sidebar-box dl { margin: 20px 0; font-size: 13px; }
+.sidebar-box dt { color: var(--muted); }
+.sidebar-box dd { margin: 0 0 10px; }
+.sidebar-box > a, .back-home { font-size: 13px; }
+.back-home { display: inline-block; margin: 16px 4px; }
+.skip-link { position: absolute; left: 16px; top: -100px; background: white; padding: 8px 16px; z-index: 1; }
+.skip-link:focus { top: 8px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (max-width: 760px) {
+  .container { width: calc(100% - 32px); }
+  .nav-inner { gap: 24px; padding: 0 16px; }
+  .nav-links { gap: 18px; }
+  .home { padding-top: 24px; }
+  .welcome { padding: 28px 24px; }
+  h1 { font-size: 26px; }
+  .steps { grid-template-columns: 1fr; }
+  .steps li + li { border-left: 0; border-top: 1px solid var(--border); }
+  .steps p br { display: none; }
+  .panel, .wiki-article { padding: 24px 20px; }
+  .upload-area { padding: 20px 16px; }
+  .wiki-layout { grid-template-columns: minmax(0, 1fr); }
+  .wiki-sidebar { display: none; }
+  /* 좁은 화면에서는 옆 배치를 해제해 표와 본문이 각각 전체 너비를 사용하게 합니다. */
+  .infobox-right { float: none; width: 100%; margin: 24px 0 0; }
+  .section-heading { align-items: flex-start; }
+  .section-heading .small { white-space: nowrap; }
+  .site-footer { margin-top: 32px; }
 }
 
-body {
-  margin: 0;
-}
-
-a {
-  color: var(--green);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-button,
-input,
-textarea {
-  font: inherit;
-}
-
-button,
-.button {
-  cursor: pointer;
-  border: 1px solid var(--green);
-  border-radius: 4px;
-  padding: 0.5rem 0.9rem;
-  background: white;
-  color: var(--green);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-}
-
-button:hover,
-.button:hover {
-  background: #edf6ed;
-  text-decoration: none;
-}
-
-button:disabled {
-  opacity: 0.6;
-  cursor: wait;
-}
-
-.primary {
-  background: var(--green);
-  color: white;
-}
-
-.primary:hover {
-  background: #2c6b28;
-}
-
-.danger {
-  color: var(--danger);
-  border-color: var(--danger);
-}
-
-.danger:hover {
-  background: #fff0f0;
-}
-
-:focus-visible {
-  outline: 3px solid #175ca4;
-  outline-offset: 3px;
-}
-
-input,
-textarea {
-  width: 100%;
-  min-width: 0;
-  padding: 0.75rem 1rem;
-  border: 1px solid #bfc5bf;
-  border-radius: 4px;
-  background: #fff;
-  color: inherit;
-}
-
-textarea {
-  resize: vertical;
-  line-height: 1.65;
-}
-
-label {
-  display: grid;
-  gap: 0.4rem;
-}
-
-fieldset {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  min-width: 0;
-  display: grid;
-  gap: 1.1rem;
-}
-
-fieldset:disabled {
-  opacity: 0.7;
-}
-
-h1,
-h2,
-h3,
-p {
-  overflow-wrap: anywhere;
-}
-
-h1,
-h2,
-h3 {
-  line-height: 1.25;
-}
-
-img {
-  max-width: 100%;
-}
-
-pre {
-  overflow: auto;
-  padding: 1rem;
-  background: #f4f5f4;
-  border-radius: 4px;
-}
-
-code {
-  overflow-wrap: anywhere;
-}
-
-blockquote {
-  margin-left: 0;
-  border-left: 3px solid var(--border);
-  padding-left: 1.2rem;
-  color: var(--muted);
-}
-
-.container {
-  width: min(1100px, calc(100% - 2.5rem));
-  margin-inline: auto;
-}
-
-.page {
-  padding-block: 2.5rem;
-}
-
-.formPage {
-  width: min(540px, calc(100% - 2.5rem));
-  margin: 2.5rem auto 4rem;
-}
-
-.formPage h1,
-.formPage > p {
-  text-align: center;
-}
-
-.formPage form {
-  display: grid;
-  gap: 1.2rem;
-}
-
-.formPage button[type="submit"] {
-  justify-self: end;
-}
-
-.status {
-  padding: 2rem 0;
-  color: var(--muted);
-}
-
-.tabs {
-  display: flex;
-  flex-wrap: wrap;
-  border-bottom: 1px solid var(--border);
-  gap: 0.25rem;
-}
-
-.tabs a {
-  padding: 0.9rem 1rem;
-  color: var(--muted);
-  border-bottom: 2px solid transparent;
-}
-
-.tabs a[aria-current="page"] {
-  color: var(--green);
-  border-color: var(--green);
-}
-
-.tag {
-  display: inline-block;
-  padding: 0.15rem 0.65rem;
-  border: 1px solid #ddd;
-  border-radius: 1rem;
-  font-size: 0.8rem;
-  color: var(--muted);
-  overflow-wrap: anywhere;
-  max-width: 100%;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.muted {
-  color: var(--muted);
-}
-
-@media (max-width: 600px) {
-  .container {
-    width: calc(100% - 2rem);
-  }
-
-  .page {
-    padding-block: 1.5rem;
-  }
-
-  .tabs a {
-    padding-inline: 0.65rem;
-  }
-}
-
-button,
-.button {
-  max-width: 100%;
-  overflow-wrap: anywhere;
-  min-width: 0;
+@media (max-width: 380px) {
+  .nav-inner { gap: 18px; }
+  .brand { font-size: 20px; }
+  .nav-links { gap: 12px; }
+  .nav-links a { font-size: 12px; }
+  .welcome { padding: 24px 20px; }
 }
