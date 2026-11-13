@@ -1,3 +1,5 @@
+import Markdown from "react-markdown";
+
 function Article({article}){
     return (
         <>
@@ -6,6 +8,9 @@ function Article({article}){
             <h2>{article.title}</h2>       
             <div>
                 {article.description}
+            </div>
+            <div>
+                <Markdown>{article.body}</Markdown>
             </div>
         </>
     );

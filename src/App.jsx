@@ -24,7 +24,7 @@ function App(){
   return (
     <>
       <Header isLoggedIn={isLoggedIn}/>
-      <Outlet context={{handleLogin}} />
+      <Outlet context={{token, handleLogin}} />
     </>
   );
 
